@@ -12,6 +12,8 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { AiOutlinePercentage } from "react-icons/ai";
+//components
+import PriceInput from "./PriceInput";
 const formLabelStyle = {
   marginBottom: "1px",
   fontWeight: "bold",
@@ -28,24 +30,13 @@ function ProjectExpensesForm() {
       mx={{ base: "1rem", md: "5rem", lg: "15rem", xl: "30rem" }}
       mt={5}
     >
+      {/* ABC */}
+      <PriceInput priceLabel="Approved Budget Contract" />
+
       {/* Quoted Price */}
-      <Box>
-        <FormLabel style={formLabelStyle}>Quoted Price:</FormLabel>
-        <InputGroup style={inputGroupStyle}>
-          <InputLeftAddon>₱</InputLeftAddon>
-          <Input type="number" />
-        </InputGroup>
-      </Box>
+      <PriceInput priceLabel="Quoted Price" />
       {/* Cost of Equipment */}
-      <Box>
-        <FormLabel style={formLabelStyle}>
-          Total Cost of Equipment/Goods:
-        </FormLabel>
-        <InputGroup style={inputGroupStyle}>
-          <InputLeftAddon>₱</InputLeftAddon>
-          <Input type="number" />
-        </InputGroup>
-      </Box>
+      <PriceInput priceLabel="Total Cost of Equipment/Goods" />
 
       <SimpleGrid columns={{ base: 3 }} spacing={3}>
         {/* Tax */}

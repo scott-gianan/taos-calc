@@ -1,4 +1,4 @@
-import { Stack, Input, Box, Divider, FormLabel } from "@chakra-ui/react";
+import { Stack, Input, Box, FormLabel } from "@chakra-ui/react";
 const formLabelStyle = {
   marginBottom: "1px",
   fontWeight: "bold",
@@ -8,23 +8,29 @@ const formLabelStyle = {
 const inputStyle = {
   border: "1px solid gray",
 };
-function ProjectInformationForm() {
+function ProjectInformationForm({ value, onChangeHandler }) {
+  const { agencyName, projectTitle, approvedBudgetContract } = value;
   return (
     <Stack
       spacing={2}
       mx={{ base: "1rem", md: "5rem", lg: "15rem", xl: "30rem" }}
     >
       <Box>
-        <FormLabel style={formLabelStyle}>Name of Agency:</FormLabel>
-        <Input style={inputStyle} type="email" />
+        <FormLabel htmlFor="agencyName" style={formLabelStyle}>
+          Name of Agency:
+        </FormLabel>
+        <Input
+          style={inputStyle}
+          type="text"
+          id="agencyName"
+          name="agencyName"
+          value={agencyName}
+          onChange={onChangeHandler}
+        />
       </Box>
       <Box>
         <FormLabel style={formLabelStyle}>Project Title:</FormLabel>
         <Input style={inputStyle} type="text" />
-      </Box>
-      <Box>
-        <FormLabel style={formLabelStyle}>Approved Budget Contract:</FormLabel>
-        <Input style={inputStyle} type="number" />
       </Box>
     </Stack>
   );
