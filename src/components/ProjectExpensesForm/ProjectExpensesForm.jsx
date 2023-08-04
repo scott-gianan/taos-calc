@@ -6,7 +6,6 @@ import {
   FormLabel,
   SimpleGrid,
   InputRightElement,
-  InputLeftAddon,
   Divider,
   AbsoluteCenter,
   Select,
@@ -14,6 +13,7 @@ import {
 import { AiOutlinePercentage } from "react-icons/ai";
 //components
 import PriceInput from "./PriceInput";
+import PercentageInput from "./PercentageInput";
 const formLabelStyle = {
   marginBottom: "1px",
   fontWeight: "bold",
@@ -30,51 +30,22 @@ function ProjectExpensesForm() {
       mx={{ base: "1rem", md: "5rem", lg: "15rem", xl: "30rem" }}
       mt={5}
     >
-      {/* ABC */}
       <PriceInput priceLabel="Approved Budget Contract" />
-
-      {/* Quoted Price */}
       <PriceInput priceLabel="Quoted Price" />
-      {/* Cost of Equipment */}
       <PriceInput priceLabel="Total Cost of Equipment/Goods" />
-
       <SimpleGrid columns={{ base: 3 }} spacing={3}>
         {/* Tax */}
-        <Box>
-          <FormLabel style={formLabelStyle}>Tax:</FormLabel>
-          <InputGroup style={inputGroupStyle}>
-            <Input type="number" />
-            <InputRightElement>
-              <AiOutlinePercentage />
-            </InputRightElement>
-          </InputGroup>
-        </Box>
+        <PercentageInput percentageLabel="Tax" />
         {/* Labor */}
-        <Box>
-          <FormLabel style={formLabelStyle}>Labor:</FormLabel>
-          <InputGroup style={inputGroupStyle}>
-            <Input type="number" />
-            <InputRightElement>
-              <AiOutlinePercentage />
-            </InputRightElement>
-          </InputGroup>
-        </Box>
+        <PercentageInput percentageLabel="Labor" />
         {/* Overhead */}
-        <Box>
-          <FormLabel style={formLabelStyle}>Overhead:</FormLabel>
-          <InputGroup style={inputGroupStyle}>
-            <Input type="number" />
-            <InputRightElement>
-              <AiOutlinePercentage />
-            </InputRightElement>
-          </InputGroup>
-        </Box>
+        <PercentageInput percentageLabel="Overhead" />
       </SimpleGrid>
       {/* incentives */}
-      <Box position="relative" my={5}>
+      {/* <Box position="relative" my={5}>
         <Divider />
         <AbsoluteCenter>Incentives</AbsoluteCenter>
-      </Box>
+      </Box> */}
       <SimpleGrid columns={{ base: 2 }} spacing={3} mb={5}>
         <Box>
           <FormLabel style={formLabelStyle}>Agency:</FormLabel>
