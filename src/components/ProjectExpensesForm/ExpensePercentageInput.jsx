@@ -15,7 +15,7 @@ const formLabelStyle = {
 const inputGroupStyle = {
   border: "1px gray",
 };
-function PercentageInput({
+function ExpensePercentageInput({
   percentageLabel,
   percentageValue,
   percentageOnChange,
@@ -33,4 +33,4 @@ function PercentageInput({
   );
 }
 
-export default PercentageInput;
+export default ExpensePercentageInput;
