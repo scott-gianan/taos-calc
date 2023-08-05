@@ -1,19 +1,19 @@
 import { useState, createContext } from "react";
-import { projectData } from "../assets/data";
-export const DataContext = createContext();
+import { data } from "../assets/data";
+export const ProjectContext = createContext();
 
 function DataProvider({ children }) {
-  const [data, setData] = useState(projectData);
-  const handleProjectDescription = (event) => {
-    setData((prevData) => {
+  const [projectData, setProjectData] = useState(data);
+  const handleEntityValues = (event) => {
+    setProjectData((prevData) => {
       return {
         ...prevData,
         [event.target.name]: event.target.value,
       };
     });
   };
-  const handleMonetaryValue = (event) => {
-    setData((prevData) => {
+  const handleFinancialValues = (event) => {
+    setProjectData((prevData) => {
       return {
         ...prevData,
         [event.target.name]: Number(event.target.value),
@@ -21,11 +21,14 @@ function DataProvider({ children }) {
     });
   };
   const values = {
-    data,
-    handleProjectDescription,
-    handleMonetaryValue,
+    projectData,
+    onChangeHandlers: {
+      handleEntityValues,
+      handleFinancialValues,
+    },
   };
-  return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
+  return (
+    <ProjectContext.Provider value={values}>{children}</ProjectContext.Provider>
+  );
 }
-
 export default DataProvider;

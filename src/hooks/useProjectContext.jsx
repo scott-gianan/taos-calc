@@ -1,14 +1,11 @@
-import { DataContext } from "../context/DataProvider";
 import { useContext } from "react";
-
-function useProjectContext() {
-  const { data, handleProjectDescription, handleMonetaryValue } =
-    useContext(DataContext);
+import { ProjectContext } from "../context/DataProvider";
+export const useProjectContext = () => {
+  const { projectData, onChangeHandlers } = useContext(ProjectContext);
   return {
-    data,
-    handleProjectDescription,
-    handleMonetaryValue,
+    projectData,
+    onChangeHandlers,
   };
-}
+};
 
 export default useProjectContext;
