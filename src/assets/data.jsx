@@ -2,7 +2,7 @@ export const data = {
   agency: {
     id: "agencyName",
     value: "",
-    label: "Agency",
+    label: "Agency Name",
     name: "agencyName",
   },
   projectTitle: {
@@ -47,6 +47,20 @@ export const data = {
       value: "",
       name: "overheadPercent",
       label: "Overhead",
+    },
+  },
+  incentivesPercentage: {
+    agency: {
+      id: "agencyPercent",
+      value: "",
+      name: "agencyPercent",
+      label: "Agency",
+    },
+    supplier: {
+      id: "associateSupplier",
+      value: "",
+      name: "associateSupplier",
+      label: "Associate Supplier",
     },
   },
 };
