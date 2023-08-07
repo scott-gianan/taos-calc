@@ -42,6 +42,28 @@ export function ProjectDataProvider({ children }) {
       }
     });
   };
+  const handleLaborPercentageValue = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.businessPercentage.labor.value = "";
+      } else {
+        if (event.target.value <= 100) {
+          draft.businessPercentage.labor.value = Number(event.target.value);
+        }
+      }
+    });
+  };
+  const handleOverheadPercentageValue = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.businessPercentage.overhead.value = "";
+      } else {
+        if (event.target.value <= 100) {
+          draft.businessPercentage.overhead.value = Number(event.target.value);
+        }
+      }
+    });
+  };
   // const handleFinancialValues = (event) => {
   //   setProjectData((prevData) => {
   //     return {
@@ -58,6 +80,8 @@ export function ProjectDataProvider({ children }) {
       handleApprovedBudgetContractValue,
       handleQuotedPriceValue,
       handleCostOfGoodsValue,
+      handleLaborPercentageValue,
+      handleOverheadPercentageValue,
     },
   };
   return (
