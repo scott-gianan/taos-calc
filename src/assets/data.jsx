@@ -29,6 +29,26 @@ export const data = {
     name: "totalCostOfGoods",
     label: "Total Cost of Goods",
   },
+  businessPercentage: {
+    tax: {
+      id: "taxPercent",
+      value: 4,
+      name: "taxPercent",
+      label: "Tax",
+    },
+    labor: {
+      id: "laborPercent",
+      value: "",
+      name: "laborPercent",
+      label: "Labor",
+    },
+    overhead: {
+      id: "overheadPercent",
+      value: "",
+      name: "overheadPercent",
+      label: "Overhead",
+    },
+  },
 };
 
 // percentages: {
