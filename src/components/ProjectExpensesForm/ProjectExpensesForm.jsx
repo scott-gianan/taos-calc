@@ -17,7 +17,8 @@ function ProjectExpensesForm() {
   } = projectData;
   const { tax, labor, overhead } = businessPercentage;
   const { agency, supplier } = incentivesPercentage;
-  const isABCPresent = approvedBudgetContract.value !== "";
+  const isABCPresent =
+    approvedBudgetContract.value !== "" && approvedBudgetContract.value !== 0;
   //eventhandlers
   const {
     handleApprovedBudgetContractValue,
