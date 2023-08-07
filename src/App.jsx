@@ -39,11 +39,9 @@ function App() {
           Calculate
         </Button>
       </Flex>
-      {result?.revenue && (
-        <Box mx={{ base: "0.25rem", md: "5rem", lg: "15rem", xl: "30rem" }}>
-          <TableResult result={result} />
-        </Box>
-      )}
+      <Box mx={{ base: "0.25rem", md: "5rem", lg: "15rem", xl: "30rem" }}>
+        <TableResult result={result} />
+      </Box>
     </>
   );
 }
