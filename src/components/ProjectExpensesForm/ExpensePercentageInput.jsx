@@ -16,15 +16,27 @@ const inputGroupStyle = {
   border: "1px gray",
 };
 function ExpensePercentageInput({
-  percentageLabel,
-  percentageValue,
-  percentageOnChange,
+  percentData,
+  isDisabled = false,
+  percentOnChange,
 }) {
+  const { id, value, name, label } = percentData;
   return (
     <Box>
-      <FormLabel style={formLabelStyle}>{percentageLabel}:</FormLabel>
+      <FormLabel htmlFor={name} style={formLabelStyle}>
+        {label}:
+      </FormLabel>
       <InputGroup style={inputGroupStyle}>
-        <Input type="number" />
+        <Input
+          type="number"
+          id={id}
+          value={value}
+          name={name}
+          onChange={percentOnChange}
+          pattern="[0-9]"
+          disabled={isDisabled}
+          max={100}
+        />
         <InputRightElement>
           <AiOutlinePercentage />
         </InputRightElement>
