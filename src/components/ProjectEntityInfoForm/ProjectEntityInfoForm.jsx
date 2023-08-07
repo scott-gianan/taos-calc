@@ -1,4 +1,4 @@
-import { Stack, Box } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import TextInput from "./TextInput";
 //custom hooks
 import { useProjectDataContext } from "../../context/ProjectDataProvider";
