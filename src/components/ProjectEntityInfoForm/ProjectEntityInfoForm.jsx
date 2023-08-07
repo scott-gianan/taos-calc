@@ -10,6 +10,7 @@ function ProjectEntityInfoForm() {
     <Stack
       spacing={2}
       mx={{ base: "1rem", md: "5rem", lg: "15rem", xl: "30rem" }}
+      mt={3}
     >
       <TextInput data={agency} onChangeHandler={handleAgencyValue} />
 
