@@ -3,9 +3,9 @@ function calcResult(data) {
   const projectTitle = data.projectTitle.value;
   const approvedBudgetContract = data.approvedBudgetContract.value;
   const quotedPrice = data.quotedPrice.value;
-  const costOfGoods = data.costOfGoods.value;
-  const newAmountAfterTaxes = quotedPrice * 0.96;
-  const revenue = quotedPrice - costOfGoods;
+  const totalCostOfGoods = data.costOfGoods.value;
+  const netAmountAfterTaxes = quotedPrice * 0.96;
+  const revenue = quotedPrice - totalCostOfGoods;
   const laborCost = quotedPrice * (data.businessPercentage.labor.value / 100);
   const overheadCost =
     quotedPrice * (data.businessPercentage.overhead.value / 100);
@@ -16,7 +16,7 @@ function calcResult(data) {
     }
     if (basis === "afterTaxNet") {
       return (
-        newAmountAfterTaxes * (data.incentivesPercentage.agency.value / 100)
+        netAmountAfterTaxes * (data.incentivesPercentage.agency.value / 100)
       );
     }
     if (basis === "approvedBudgetContract") {
@@ -34,7 +34,7 @@ function calcResult(data) {
     }
     if (basis === "afterTaxNet") {
       return (
-        newAmountAfterTaxes * (data.incentivesPercentage.supplier.value / 100)
+        netAmountAfterTaxes * (data.incentivesPercentage.supplier.value / 100)
       );
     }
     if (basis === "approvedBudgetContract") {
@@ -45,24 +45,23 @@ function calcResult(data) {
     }
     return 0;
   };
-  const netProfit =
-    quotedPrice -
-    (newAmountAfterTaxes +
-      businessExpenseTotal +
-      agencyIncentive() +
-      supplierIncentive());
+
+  const otherExpenseTotal = agencyIncentive() + supplierIncentive();
+
   return {
-    agencyName,
-    projectTitle,
-    approvedBudgetContract,
     quotedPrice,
-    costOfGoods,
-    newAmountAfterTaxes,
+    totalCostOfGoods,
+    netAmountAfterTaxes,
     revenue,
     laborCost,
     overheadCost,
     businessExpenseTotal,
-    netProfit,
+    netProfit:
+      netAmountAfterTaxes -
+      (totalCostOfGoods + otherExpenseTotal + businessExpenseTotal),
+    agencyIncentive: agencyIncentive(),
+    supplierIncentive: supplierIncentive(),
+    otherExpenseTotal,
   };
 }
 
