@@ -28,14 +28,15 @@ function TableRow({ detail, amount = 0 }) {
     <Tr style={trStyle}>
       <Td style={detailStyle}>{detail}</Td>
       <Td style={amountStyle}>
-        ₱{" "}
-        {amount
-          .toLocaleString("en-US", {
-            style: "decimal",
-            minimumFractionDigits: 1,
-            maximumFractionDigits: 1,
-          })
-          .replace(/,/g, ", ")}
+        {" "}
+        {amount !== 0 &&
+          `₱ ${amount
+            .toLocaleString("en-US", {
+              style: "decimal",
+              minimumFractionDigits: 1,
+              maximumFractionDigits: 1,
+            })
+            .replace(/,/g, ", ")}`}
       </Td>
     </Tr>
   );
