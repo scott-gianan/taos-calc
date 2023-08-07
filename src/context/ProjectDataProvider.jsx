@@ -98,6 +98,9 @@ export function ProjectDataProvider({ children }) {
       draft.incentivesPercentage.supplier.basis = event.target.value;
     });
   };
+  const handleResetFields = (data) => {
+    setProjectData(data);
+  };
   const values = {
     projectData,
     onChangeHandlers: {
@@ -112,6 +115,7 @@ export function ProjectDataProvider({ children }) {
       handleAgencyIncentiveBasis,
       handleSupplierIncentivePercentage,
       handleSupplierIncentiveBasis,
+      handleResetFields,
     },
   };
   return (
