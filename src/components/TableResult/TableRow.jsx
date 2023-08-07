@@ -14,7 +14,16 @@ function TableRow({ detail, amount }) {
   return (
     <Tr style={trStyle}>
       <Td style={tdStyle}>{detail}</Td>
-      <Td style={tdStyle}>₱ {amount}</Td>
+      <Td style={tdStyle}>
+        ₱{" "}
+        {amount
+          .toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1,
+          })
+          .replace(/,/g, ", ")}
+      </Td>
     </Tr>
   );
 }
