@@ -14,13 +14,23 @@ const formLabelStyle = {
 const inputGroupStyle = {
   border: "1px gray",
 };
-function PriceInput({ priceLabel, priceValue, priceOnChange }) {
+function PriceInput({ priceData, priceOnChange }) {
+  const { id, value, name, label } = priceData;
   return (
     <Box>
-      <FormLabel style={formLabelStyle}>{priceLabel}:</FormLabel>
+      <FormLabel htmlFor={name} style={formLabelStyle}>
+        {label}:
+      </FormLabel>
       <InputGroup style={inputGroupStyle}>
         <InputLeftAddon>₱</InputLeftAddon>
-        <Input type="number" />
+        <Input
+          id={id}
+          type="number"
+          value={value}
+          onChange={priceOnChange}
+          name={name}
+          pattern="[0-9]"
+        />
       </InputGroup>
     </Box>
   );
