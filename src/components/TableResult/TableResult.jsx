@@ -7,12 +7,25 @@ import {
   TableContainer,
   TableCaption,
 } from "@chakra-ui/react";
+const trStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+};
 import TableRow from "./TableRow";
-function TableResult() {
-  const trStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-  };
+function TableResult({ result }) {
+  const {
+    quotedPrice,
+    totalCostOfGoods,
+    netAmountAfterTaxes,
+    revenue,
+    laborCost,
+    overheadCost,
+    businessExpenseTotal,
+    netProfit,
+    agencyIncentive,
+    supplierIncentive,
+    otherExpenseTotal,
+  } = result;
   return (
     <>
       {/* Result 1 */}
@@ -26,13 +39,16 @@ function TableResult() {
             </Tr>
           </Thead>
           <Tbody>
-            <TableRow detail="Quoted Price" amount="Q.P AMt" />
-            <TableRow detail="Net Amt. (after taxes)" amount="After Taxes" />
+            <TableRow detail="Quoted Price" amount={quotedPrice} />
+            <TableRow
+              detail="Net Amt. (after taxes)"
+              amount={netAmountAfterTaxes}
+            />
             <TableRow
               detail="Total Cost of Equipment/Goods"
-              amount="After Taxes"
+              amount={totalCostOfGoods}
             />
-            <TableRow detail="Revenue" amount="Revenue" />
+            <TableRow detail="Revenue" amount={revenue} />
           </Tbody>
         </Table>
       </TableContainer>
@@ -41,9 +57,12 @@ function TableResult() {
         <Table size="lg" variant="striped">
           <TableCaption placement="top">Business Expense</TableCaption>
           <Tbody>
-            <TableRow detail="Labor" amount="Labor" />
-            <TableRow detail="Overhead" amount="OH" />
-            <TableRow detail="Business Expense Total" amount="B.E" />
+            <TableRow detail="Labor" amount={laborCost} />
+            <TableRow detail="Overhead" amount={overheadCost} />
+            <TableRow
+              detail="Business Expense Total"
+              amount={businessExpenseTotal}
+            />
           </Tbody>
         </Table>
       </TableContainer>
@@ -51,21 +70,26 @@ function TableResult() {
       <TableContainer>
         <Table size="lg" variant="striped">
           <TableCaption placement="top">Other Expense</TableCaption>
-
           <Tbody>
-            <TableRow detail="Agency's Incentive" amount="Agency In" />
-            <TableRow detail="Supplier's Incentive" amount="S.I" />
-            <TableRow detail="Other Expenses Total" amount="O.E" />
+            <TableRow detail="Agency's Incentive" amount={agencyIncentive} />
+            <TableRow
+              detail="Supplier's Incentive"
+              amount={supplierIncentive}
+            />
+            <TableRow
+              detail="Other Expenses Total"
+              amount={otherExpenseTotal}
+            />
           </Tbody>
         </Table>
       </TableContainer>
       {/* Profit */}
       <TableContainer>
         <Table size="lg" variant="striped">
-          <TableCaption placement="top">Net Amount Profit</TableCaption>
+          <TableCaption placement="top">Profit</TableCaption>
 
           <Tbody>
-            <TableRow detail="Actual Net Profit" amount="Net Profit" />
+            <TableRow detail="Net Profit" amount={netProfit} />
           </Tbody>
         </Table>
       </TableContainer>
