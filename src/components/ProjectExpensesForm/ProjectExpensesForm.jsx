@@ -1,11 +1,21 @@
-import { Stack, SimpleGrid } from "@chakra-ui/react";
+import {
+  Stack,
+  SimpleGrid,
+  Box,
+  Divider,
+  AbsoluteCenter,
+} from "@chakra-ui/react";
 //custom hooks
 import { useProjectDataContext } from "../../context/ProjectDataProvider";
 //components
 import PriceInput from "./PriceInput";
 import PercentageInput from "./ExpensePercentageInput";
 import IncentivePercentageInput from "./IncentivePercentageInput";
-
+const dividerStyle = {
+  fontWeight: "bold",
+  fontStyle: "italic",
+  color: " 	#FF954F",
+};
 function ProjectExpensesForm() {
   const { projectData, onChangeHandlers } = useProjectDataContext();
   const {
@@ -61,6 +71,10 @@ function ProjectExpensesForm() {
           percentOnChange={handleOverheadPercentageValue}
         />
       </SimpleGrid>
+      <Box position="relative" my={7} style={dividerStyle}>
+        <Divider />
+        <AbsoluteCenter>Incentives</AbsoluteCenter>
+      </Box>
       <IncentivePercentageInput
         incentiveData={agency}
         incentiveOnChange={handleAgencyIncentivePercentage}
@@ -78,9 +92,3 @@ function ProjectExpensesForm() {
 }
 
 export default ProjectExpensesForm;
-{
-  /* <Box position="relative" my={5}>
-        <Divider />
-        <AbsoluteCenter>Incentives</AbsoluteCenter>
-      </Box> */
-}
