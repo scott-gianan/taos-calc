@@ -1,46 +1,66 @@
-export const projectData = {
-  entity: [
-    { id: "agencyName", value: "", name: "agencyName" },
-    { id: "projectTitle", value: "", name: "projectTitle" },
-  ],
-  financial: [
-    { id: "approvedBudgetContract", value: "", name: "approvedBudgetContract" },
-    { id: "quotedPrice", value: "", name: "quotedPrice" },
-    { id: "totalCostOfGoods", value: "", name: "totalCostOfGoods" },
-  ],
-  percentages: {
-    business: [
-      {
-        id: "taxPercentage",
-        value: "",
-        name: "taxPercentage",
-      },
-      {
-        id: "laborPercentage",
-        value: "",
-        name: "laborPercentage",
-      },
-      {
-        id: "overheadPercentage",
-        value: "",
-        name: "overheadPercentage",
-      },
-    ],
-    incentives: [
-      {
-        id: "agencyPercent",
-        value: "",
-        name: "agencyPercent",
-      },
-      {
-        id: "associateSupplier",
-        value: "",
-        name: "associateSupplier",
-      },
-    ],
+export const data = {
+  agency: {
+    id: "agencyName",
+    value: "",
+    label: "Agency",
+    name: "agencyName",
+  },
+  projectTitle: {
+    id: "projectTitle",
+    value: "",
+    label: "Project Title",
+    name: "projectTitle",
+  },
+  approvedBudgetContract: {
+    id: "approvedBudgetContract",
+    value: "",
+    name: "approvedBudgetContract",
+  },
+  quotedPrice: {
+    id: "quotedPrice",
+    value: "",
+    name: "quotedPrice",
+    label: "Quoted Price",
+  },
+  costOfGoods: {
+    id: "totalCostOfGoods",
+    value: "",
+    name: "totalCostOfGoods",
+    label: "Total Cost of Goods",
   },
 };
 
+// percentages: {
+//     business: [
+//       {
+//         id: "taxPercentage",
+//         value: "",
+//         name: "taxPercentage",
+//       },
+//       {
+//         id: "laborPercentage",
+//         value: "",
+//         name: "laborPercentage",
+//       },
+//       {
+//         id: "overheadPercentage",
+//         value: "",
+//         name: "overheadPercentage",
+//       },
+//     ],
+//     incentives: [
+//       {
+//         id: "agencyPercent",
+//         value: "",
+//         name: "agencyPercent",
+//       },
+//       {
+//         id: "associateSupplier",
+//         value: "",
+//         name: "associateSupplier",
+//       },
+//     ],
+//   },
 // Quoted Price = quotedPrice,
 // Net Amt. (after taxes) = quotedPrice*(taxPercent/100)
 // Total Cost of Equipment/Goods = totalCostOfGoods
