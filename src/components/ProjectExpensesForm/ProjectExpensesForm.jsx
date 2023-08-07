@@ -8,11 +8,20 @@ import IncentivePercentageInput from "./IncentivePercentageInput";
 
 function ProjectExpensesForm() {
   const { projectData, onChangeHandlers } = useProjectDataContext();
-  const { approvedBudgetContract, quotedPrice, costOfGoods } = projectData;
+  const {
+    approvedBudgetContract,
+    quotedPrice,
+    costOfGoods,
+    businessPercentage,
+  } = projectData;
+  const { tax, labor, overhead } = businessPercentage;
+  //eventhandlers
   const {
     handleApprovedBudgetContractValue,
     handleQuotedPriceValue,
     handleCostOfGoodsValue,
+    handleLaborPercentageValue,
+    handleOverheadPercentageValue,
   } = onChangeHandlers;
   return (
     <Stack
@@ -33,13 +42,19 @@ function ProjectExpensesForm() {
         priceOnChange={handleCostOfGoodsValue}
       />
 
-      {/* <SimpleGrid columns={{ base: 3 }} spacing={3}>
-        <PercentageInput percentageLabel="Tax" />
-        <PercentageInput percentageLabel="Labor" />
-        <PercentageInput percentageLabel="Overhead" />
+      <SimpleGrid columns={{ base: 3 }} spacing={3}>
+        <PercentageInput percentData={tax} isDisabled={true} />
+        <PercentageInput
+          percentData={labor}
+          percentOnChange={handleLaborPercentageValue}
+        />
+        <PercentageInput
+          percentData={overhead}
+          percentOnChange={handleOverheadPercentageValue}
+        />
       </SimpleGrid>
-      <IncentivePercentageInput incentiveLabel="Agency" />
-      <IncentivePercentageInput incentiveLabel="Associate Supplier/s" /> */}
+      {/* <IncentivePercentageInput incentiveLabel="Agency" />
+      <IncentivePercentageInput incentiveLabel="Associate Supplier/s" />  */}
     </Stack>
   );
 }
