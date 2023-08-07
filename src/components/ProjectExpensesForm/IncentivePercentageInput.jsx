@@ -1,13 +1,10 @@
 import {
-  Stack,
   Input,
   Box,
   InputGroup,
   FormLabel,
   SimpleGrid,
   InputRightElement,
-  Divider,
-  AbsoluteCenter,
   Select,
 } from "@chakra-ui/react";
 import { AiOutlinePercentage } from "react-icons/ai";
@@ -21,16 +18,26 @@ const inputGroupStyle = {
   border: "1px gray",
 };
 function IncentivePercentageInput({
-  incentiveLabel,
-  incentiveValue,
+  incentiveData,
   incentiveOnChange,
+  incentiveBasisOnChange,
+  isABCPresent,
 }) {
+  const { id, value, name, label, basis } = incentiveData;
   return (
     <SimpleGrid columns={{ base: 2 }} spacing={3} mb={5}>
       <Box>
-        <FormLabel style={formLabelStyle}>{incentiveLabel}:</FormLabel>
+        <FormLabel htmlFor={name} style={formLabelStyle}>
+          {label}:
+        </FormLabel>
         <InputGroup style={inputGroupStyle}>
-          <Input type="number" />
+          <Input
+            type="number"
+            id={id}
+            value={value}
+            onChange={incentiveOnChange}
+            pattern="[0-9]"
+          />
           <InputRightElement>
             <AiOutlinePercentage />
           </InputRightElement>
@@ -38,10 +45,14 @@ function IncentivePercentageInput({
       </Box>
       <Box>
         <FormLabel style={formLabelStyle}>Percentage Basis:</FormLabel>
-        <Select style={{ border: "1px solid gray" }}>
-          <option value="option1">Quoted Price</option>
-          <option value="option2">After Tax Net</option>
-          <option value="option3">ABC</option>
+        <Select
+          style={{ border: "1px solid gray" }}
+          value={basis}
+          onChange={incentiveBasisOnChange}
+        >
+          <option value="quotedPrice">Quoted Price</option>
+          <option value="afterTaxNet">After Tax Net</option>
+          {isABCPresent && <option value="approvedBudgetContract">ABC</option>}
         </Select>
       </Box>
     </SimpleGrid>
