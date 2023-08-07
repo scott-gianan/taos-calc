@@ -55,12 +55,14 @@ export const data = {
       value: "",
       name: "agencyPercent",
       label: "Agency",
+      basis: "",
     },
     supplier: {
       id: "associateSupplier",
       value: "",
       name: "associateSupplier",
       label: "Associate Supplier",
+      basis: "",
     },
   },
 };
