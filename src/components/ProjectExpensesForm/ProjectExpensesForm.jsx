@@ -13,8 +13,11 @@ function ProjectExpensesForm() {
     quotedPrice,
     costOfGoods,
     businessPercentage,
+    incentivesPercentage,
   } = projectData;
   const { tax, labor, overhead } = businessPercentage;
+  const { agency, supplier } = incentivesPercentage;
+  const isABCPresent = approvedBudgetContract.value !== "";
   //eventhandlers
   const {
     handleApprovedBudgetContractValue,
@@ -22,6 +25,10 @@ function ProjectExpensesForm() {
     handleCostOfGoodsValue,
     handleLaborPercentageValue,
     handleOverheadPercentageValue,
+    handleAgencyIncentivePercentage,
+    handleAgencyIncentiveBasis,
+    handleSupplierIncentivePercentage,
+    handleSupplierIncentiveBasis,
   } = onChangeHandlers;
   return (
     <Stack
@@ -53,8 +60,18 @@ function ProjectExpensesForm() {
           percentOnChange={handleOverheadPercentageValue}
         />
       </SimpleGrid>
-      {/* <IncentivePercentageInput incentiveLabel="Agency" />
-      <IncentivePercentageInput incentiveLabel="Associate Supplier/s" />  */}
+      <IncentivePercentageInput
+        incentiveData={agency}
+        incentiveOnChange={handleAgencyIncentivePercentage}
+        incentiveBasisOnChange={handleAgencyIncentiveBasis}
+        isABCPresent={isABCPresent}
+      />
+      <IncentivePercentageInput
+        incentiveData={supplier}
+        incentiveOnChange={handleSupplierIncentivePercentage}
+        incentiveBasisOnChange={handleSupplierIncentiveBasis}
+        isABCPresent={isABCPresent}
+      />
     </Stack>
   );
 }
