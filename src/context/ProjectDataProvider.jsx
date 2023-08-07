@@ -15,7 +15,33 @@ export function ProjectDataProvider({ children }) {
       draft.projectTitle.value = event.target.value;
     });
   };
-
+  const handleApprovedBudgetContractValue = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.approvedBudgetContract.value = "";
+      } else {
+        draft.approvedBudgetContract.value = Number(event.target.value);
+      }
+    });
+  };
+  const handleQuotedPriceValue = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.quotedPrice.value = "";
+      } else {
+        draft.quotedPrice.value = Number(event.target.value);
+      }
+    });
+  };
+  const handleCostOfGoodsValue = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.costOfGoods.value = "";
+      } else {
+        draft.costOfGoods.value = Number(event.target.value);
+      }
+    });
+  };
   // const handleFinancialValues = (event) => {
   //   setProjectData((prevData) => {
   //     return {
@@ -26,7 +52,13 @@ export function ProjectDataProvider({ children }) {
   // };
   const values = {
     projectData,
-    onChangeHandlers: { handleAgencyValue, handleProjectTitleValue },
+    onChangeHandlers: {
+      handleAgencyValue,
+      handleProjectTitleValue,
+      handleApprovedBudgetContractValue,
+      handleQuotedPriceValue,
+      handleCostOfGoodsValue,
+    },
   };
   return (
     <ProjectDataContext.Provider value={values}>
