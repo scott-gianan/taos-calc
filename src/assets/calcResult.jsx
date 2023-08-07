@@ -10,36 +10,37 @@ function calcResult(data) {
   const overheadCost =
     quotedPrice * (data.businessPercentage.overhead.value / 100);
   const businessExpenseTotal = laborCost + overheadCost;
-  const agencyIncentive = (basis = data.incentivePercentage.agency.basis) => {
+  const agencyIncentive = (basis = data.incentivesPercentage.agency.basis) => {
     if (basis === "quotedPrice") {
-      return quotedPrice * (data.incentivePercentage.agency.value / 100);
+      return quotedPrice * (data.incentivesPercentage.agency.value / 100);
     }
     if (basis === "afterTaxNet") {
       return (
-        newAmountAfterTaxes * (data.incentivePercentage.agency.value / 100)
+        newAmountAfterTaxes * (data.incentivesPercentage.agency.value / 100)
       );
     }
     if (basis === "approvedBudgetContract") {
       return (
-        approvedBudgetContract * (data.incentivePercentage.agency.value / 100)
+        approvedBudgetContract * (data.incentivesPercentage.agency.value / 100)
       );
     }
     return 0;
   };
   const supplierIncentive = (
-    basis = data.incentivePercentage.supplier.basis
+    basis = data.incentivesPercentage.supplier.basis
   ) => {
     if (basis === "quotedPrice") {
-      return quotedPrice * (data.incentivePercentage.supplier.value / 100);
+      return quotedPrice * (data.incentivesPercentage.supplier.value / 100);
     }
     if (basis === "afterTaxNet") {
       return (
-        newAmountAfterTaxes * (data.incentivePercentage.supplier.value / 100)
+        newAmountAfterTaxes * (data.incentivesPercentage.supplier.value / 100)
       );
     }
     if (basis === "approvedBudgetContract") {
       return (
-        approvedBudgetContract * (data.incentivePercentage.supplier.value / 100)
+        approvedBudgetContract *
+        (data.incentivesPercentage.supplier.value / 100)
       );
     }
     return 0;
@@ -48,8 +49,8 @@ function calcResult(data) {
     quotedPrice -
     (newAmountAfterTaxes +
       businessExpenseTotal +
-      agencyIncentive +
-      supplierIncentive);
+      agencyIncentive() +
+      supplierIncentive());
   return {
     agencyName,
     projectTitle,
@@ -61,8 +62,6 @@ function calcResult(data) {
     laborCost,
     overheadCost,
     businessExpenseTotal,
-    agencyIncentive,
-    supplierIncentive,
     netProfit,
   };
 }
