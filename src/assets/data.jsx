@@ -15,6 +15,7 @@ export const data = {
     id: "approvedBudgetContract",
     value: "",
     name: "approvedBudgetContract",
+    label: "Approved Budget Contract",
   },
   quotedPrice: {
     id: "quotedPrice",
