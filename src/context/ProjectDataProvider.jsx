@@ -64,14 +64,40 @@ export function ProjectDataProvider({ children }) {
       }
     });
   };
-  // const handleFinancialValues = (event) => {
-  //   setProjectData((prevData) => {
-  //     return {
-  //       ...prevData,
-  //       [event.target.name]: Number(event.target.value),
-  //     };
-  //   });
-  // };
+  const handleAgencyIncentivePercentage = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.incentivesPercentage.agency.value = "";
+      } else {
+        if (event.target.value <= 100) {
+          draft.incentivesPercentage.agency.value = Number(event.target.value);
+        }
+      }
+    });
+  };
+  const handleAgencyIncentiveBasis = (event) => {
+    setProjectData((draft) => {
+      draft.incentivesPercentage.agency.basis = event.target.value;
+    });
+  };
+  const handleSupplierIncentivePercentage = (event) => {
+    setProjectData((draft) => {
+      if (event.target.value === "") {
+        draft.incentivesPercentage.supplier.value = "";
+      } else {
+        if (event.target.value <= 100) {
+          draft.incentivesPercentage.supplier.value = Number(
+            event.target.value
+          );
+        }
+      }
+    });
+  };
+  const handleSupplierIncentiveBasis = (event) => {
+    setProjectData((draft) => {
+      draft.incentivesPercentage.supplier.basis = event.target.value;
+    });
+  };
   const values = {
     projectData,
     onChangeHandlers: {
@@ -82,6 +108,10 @@ export function ProjectDataProvider({ children }) {
       handleCostOfGoodsValue,
       handleLaborPercentageValue,
       handleOverheadPercentageValue,
+      handleAgencyIncentivePercentage,
+      handleAgencyIncentiveBasis,
+      handleSupplierIncentivePercentage,
+      handleSupplierIncentiveBasis,
     },
   };
   return (
