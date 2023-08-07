@@ -51,7 +51,7 @@ function IncentivePercentageInput({
           onChange={incentiveBasisOnChange}
         >
           <option value="quotedPrice">Quoted Price</option>
-          <option value="afterTaxNet">After Tax Net</option>
+          <option value="afterTaxNet">Net Amount (After Tax)</option>
           {isABCPresent && <option value="approvedBudgetContract">ABC</option>}
         </Select>
       </Box>
