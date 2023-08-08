@@ -1,5 +1,5 @@
 //chakraUI
-import { Button, Flex, Box, Center } from "@chakra-ui/react";
+import { Button, Flex, Box } from "@chakra-ui/react";
 //components
 import ProjectEntityInfoForm from "./components/ProjectEntityInfoForm/ProjectEntityInfoForm";
 import ProjectExpensesForm from "./components/ProjectExpensesForm/ProjectExpensesForm";
@@ -11,7 +11,6 @@ import "./App.css";
 import useResult from "./hooks/useResult";
 function App() {
   const { result, handleResult, onReset } = useResult();
-
   return (
     <>
       <Header />
@@ -30,14 +29,12 @@ function App() {
           Calculate
         </Button>
       </Flex>
-      <Box mx={{ base: "0.25rem", md: "5rem", lg: "15rem", xl: "30rem" }}>
+      <Box
+        mx={{ base: "0.25rem", md: "5rem", lg: "15rem", xl: "30rem" }}
+        mb={5}
+      >
         <TableResult result={result} />
       </Box>
-      <Center mt={2}>
-        <Button colorScheme="teal" variant="outline">
-          Save
-        </Button>
-      </Center>
     </>
   );
 }

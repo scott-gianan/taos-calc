@@ -1,19 +1,8 @@
-import { useRef } from "react";
-import {
-  Box,
-  useColorMode,
-  Flex,
-  Spacer,
-  Button,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { Box, useColorMode, Flex, Spacer } from "@chakra-ui/react";
 import ColorModeComponent from "../ColorModeComponent";
-import SavedDataDrawer from "../SavedDataDrawer/SavedDataDrawer";
+
 export default function Header() {
   const { colorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
   const headerStyle = {
     borderBottom: colorMode === "dark" && "1px solid gray",
   };
@@ -33,16 +22,9 @@ export default function Header() {
         >
           <ColorModeComponent />
           <Spacer />
-          <Button colorScheme="green" ref={btnRef} onClick={onOpen}>
-            <RxHamburgerMenu />
-          </Button>
+          <p>© Scott Russell R. Gianan</p>
         </Flex>
       </Box>
-      <SavedDataDrawer
-        isDrawerOpen={isOpen}
-        onDrawerClose={onClose}
-        finalFocusRef={btnRef}
-      />
     </>
   );
 }
