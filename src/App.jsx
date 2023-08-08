@@ -33,7 +33,6 @@ function App() {
       <Box mx={{ base: "0.25rem", md: "5rem", lg: "15rem", xl: "30rem" }}>
         <TableResult result={result} />
       </Box>
-
       <Center mt={2}>
         <Button colorScheme="teal" variant="outline">
           Save
