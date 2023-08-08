@@ -1,10 +1,10 @@
 import { createContext, useContext } from "react";
-import { data } from "../assets/data";
+import { initialData } from "../assets/data";
 import { useImmer } from "use-immer";
 const ProjectDataContext = createContext();
 
 export function ProjectDataProvider({ children }) {
-  const [projectData, setProjectData] = useImmer(data);
+  const [projectData, setProjectData] = useImmer(initialData);
   const handleAgencyValue = (event) => {
     setProjectData((draft) => {
       draft.agency.value = event.target.value;
