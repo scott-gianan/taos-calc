@@ -1,4 +1,4 @@
-export const data = {
+export const initialData = {
   agency: {
     id: "agencyName",
     value: "",
