@@ -1,37 +1,28 @@
-import { useState } from "react";
-import { Button, Flex, Box } from "@chakra-ui/react";
+//chakraUI
+import { Button, Flex, Box, Center } from "@chakra-ui/react";
 //components
 import ProjectEntityInfoForm from "./components/ProjectEntityInfoForm/ProjectEntityInfoForm";
 import ProjectExpensesForm from "./components/ProjectExpensesForm/ProjectExpensesForm";
 import Header from "./components/Header/Header";
 import TableResult from "./components/TableResult/TableResult";
-import { data } from "./assets/data";
-//context
-
 //styling
 import "./App.css";
-//assets
-import calcResult from "./assets/calcResult";
-import { useProjectDataContext } from "./context/ProjectDataProvider";
+//custom hooks
+import useResult from "./hooks/useResult";
 function App() {
-  const { projectData, onChangeHandlers } = useProjectDataContext();
-  const { handleResetFields } = onChangeHandlers;
-  const [result, setResult] = useState({});
-  function handleResult() {
-    setResult(() => {
-      return calcResult(projectData);
-    });
-  }
-  const onReset = () => {
-    handleResetFields(data);
-    setResult({});
-  };
+  const { result, handleResult, onReset } = useResult();
+
   return (
     <>
       <Header />
       <ProjectEntityInfoForm />
       <ProjectExpensesForm />
-      <Flex justify={"center"} gap={5} mb={5}>
+      <Flex
+        justify={"space-between"}
+        gap={5}
+        mb={5}
+        mx={{ base: "1rem", md: "5rem", lg: "15rem", xl: "30rem" }}
+      >
         <Button colorScheme="red" variant="outline" onClick={onReset}>
           Reset Fields
         </Button>
@@ -42,6 +33,12 @@ function App() {
       <Box mx={{ base: "0.25rem", md: "5rem", lg: "15rem", xl: "30rem" }}>
         <TableResult result={result} />
       </Box>
+
+      <Center mt={2}>
+        <Button colorScheme="teal" variant="outline">
+          Save
+        </Button>
+      </Center>
     </>
   );
 }
