@@ -1,5 +1,4 @@
 import {
-  useDisclosure,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -24,7 +23,7 @@ function SavedDataDrawer({ isDrawerOpen, finalFocusRef, onDrawerClose }) {
           <DrawerCloseButton onClick={onDrawerClose} />
           <DrawerHeader>Saved Projects</DrawerHeader>
 
-          <DrawerBody>{/* place content here */}</DrawerBody>
+          <DrawerBody>dae pa ini tapos</DrawerBody>
           <DrawerFooter>
             <Button
               colorScheme="red"
